@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width" charset="UTF-8">
+<title>custom</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<link href="assets/site.css" rel="stylesheet">
+<style>
+#parallax-wrap {
+  height: 600px; /* anything you want/need */
+  width: 100%;
+  position: relative;
+  display: block;
+}
+.parallax {
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-image: url(assets/mountains.jpg);
+  background-repeat: no-repeat;
+  background-position:top center;
+  background-attachment:fixed;
+  background-size: cover;
+}
+</style>
+<!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div id="parallax-wrap">
+  <div class="parallax" data-speed="5"></div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  initParallax();
+  function parallaxBG(item,speed) {
+    var pos = item.offset();
+    $(window).scroll(function() {
+      var yPos = -(($(window).scrollTop()-pos.top)/speed);
+      var coords = 'center '+ yPos + 'px';
+      item.css({ 'background-position': coords });
+    });
+  }
+  function initParallax() {
+    $('.parallax').each(function() { 
+      var speed = ($(this).attr('data-speed')) ? parseInt($(this).attr('data-speed')): 10;
+      parallaxBG($(this),speed); 
+    });
+  }
+});
+</script>
+</body>
+<html>

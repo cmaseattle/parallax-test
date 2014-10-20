@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width" charset="UTF-8">
+<title>stellar</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="libs/jquery.stellar.min.js"></script>
+<link href="assets/site.css" rel="stylesheet">
+<style>
+.photo {
+  width:100%;
+  background-attachment: fixed;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover; 
+  -moz-background-size: cover; 
+  -o-background-size: cover; 
+  background-size: cover;
+  height: 600px;
+  position: relative;
+  background-image: url(assets/mountains.jpg);
+}
+</style>
+<!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div class="photo" data-stellar-background-ratio="0.5"></div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $.stellar({
+    horizontalScrolling: false,
+    verticalOffset: 40
+  });
+});
+</script>
+</body>
+<html>
